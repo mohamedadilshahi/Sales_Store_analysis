@@ -339,14 +339,14 @@ order by sum(quantity*price) desc
 -- Business impact: refine product strategy, supply chain, and promotions. allowing business to invest more in high-margin
 -- or high demand categories.
 
+-- 6. What is the return/cancellation rate per product category?
+-- Cancelled
 select Product_Category,
        format(count(case when status='Cancelled' then 1 end)*100.0/count(*),'n3')+' %' as 'Cancelled_%'
 from Sales
 group by Product_Category
 order by [Cancelled_%] desc
-
-         
-
+	
 -- Return
 
 select Product_Category,
@@ -427,4 +427,5 @@ pivot
 order by Product_Category
 
 -- Business Proble: geneder based product preferences.
+
 -- Business Impact: personalized ads, geneder-focused compaigns.
